@@ -37,7 +37,7 @@ class BookController extends Controller
             'genre_id' => 'required|exists:genres,id',
             'description' => 'required',
             'image' => 'nullable|image|max:2048',
-            'book_file' => 'nullable|mimes:pdf,epub|max:10240',
+            'book_file' => 'nullable|mimes:pdf,epub',
             'meta_title' => 'required|max:255',
             'meta_description' => 'required'
         ]);

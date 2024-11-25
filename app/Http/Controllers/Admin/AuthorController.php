@@ -23,30 +23,30 @@ class AuthorController extends Controller
         return view('admin.authors.create');
     }
 
+
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|max:255',
-            'bio' => 'nullable',
-            'image' => 'nullable|image|max:2048'
+            'name' => 'required|string|max:255',
+            'bio' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
-        $author = new Author();
-        $author->name = $validated['name'];
-        $author->bio = $validated['bio'];
-
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('authors/images', 'public');
-            $author->image = $request->file('image')->getClientOriginalName();
-            $author->image_path = $path;
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $imagePath = $image->storeAs('public/authors', $imageName);
+            
+            $validated['image'] = $imageName;
+            $validated['image_path'] = Storage::url($imagePath);
         }
 
-        $author->save();
+        $author = Author::create($validated);
 
-        return redirect()->route('admin.authors.index')
+        return redirect()
+            ->route('admin.authors.index')
             ->with('success', 'Author created successfully.');
     }
-
     public function edit(Author $author)
     {
         return view('admin.authors.edit', compact('author'));
