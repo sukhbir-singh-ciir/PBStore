@@ -52,8 +52,8 @@
                                 </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                <div>Views: {{ $book->tracking->views }}</div>
-                                <div>Downloads: {{ $book->tracking->downloads }}</div>
+                                <div>Views: {{ $book->tracking->views ?? 0 }}</div>
+                                <div>Downloads: {{ $book->tracking->downloads ?? 0 }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <a href="{{ route('admin.books.edit', $book) }}" 

@@ -32,7 +32,7 @@
                                 <div class="flex-shrink-0 h-16 w-16">
                                     @if($author->image_path)
                                         <img class="h-16 w-16 rounded-full object-cover" 
-                                             src="{{ Storage::url($author->image_path) }}" 
+                                             src="{{ "/storage/".$author->image_path }}" 
                                              alt="{{ $author->name }}">
                                     @else
                                         <div class="h-16 w-16 rounded-full bg-gray-200 flex items-center justify-center">

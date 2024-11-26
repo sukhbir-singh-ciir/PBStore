@@ -33,9 +33,8 @@ class AuthorController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $imagePath = $image->storeAs('public/authors', $imageName);
+            $imageName = $request->file('image')->getClientOriginalName();
+            $imagePath = $request->file('image')->store('authors/images', 'public');
             
             $validated['image'] = $imageName;
             $validated['image_path'] = Storage::url($imagePath);

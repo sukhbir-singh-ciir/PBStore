@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Tracking extends Model
 {
     use HasFactory;
-
+    protected $table = 'tracking';
     protected $fillable = [
         'book_id',
         'downloads',

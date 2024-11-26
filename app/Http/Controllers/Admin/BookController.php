@@ -42,6 +42,15 @@ class BookController extends Controller
             'meta_description' => 'required'
         ]);
 
+        $existingBook = Book::where('title', $validated['title'])
+        ->where('author_id', $validated['author_id'])
+        ->first();
+
+        if ($existingBook) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'A book with this title by the same author already exists.');
+        }
         $book = new Book();
         $book->fill($validated);
 

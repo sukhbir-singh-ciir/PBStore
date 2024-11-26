@@ -17,6 +17,7 @@ class Book extends Model
         'description',
         'genre_id',
         'image',
+        'image_path',
         'book_path',
     ];
 

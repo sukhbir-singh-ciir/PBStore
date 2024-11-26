@@ -114,7 +114,7 @@
                         <li class="py-4">
                             <div class="flex items-center space-x-4">
                                 <div class="flex-shrink-0">
-                                    <img class="h-8 w-8 rounded-full" src="{{ $book->image ?? 'https://via.placeholder.com/40' }}" alt="{{ $book->title }}">
+                                    <img class="h-8 w-8 rounded-full" src="{{ "/storage/".$book->image_path ?? 'https://via.placeholder.com/40' }}" alt="{{ $book->title }}">
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-sm font-medium text-gray-900 truncate">{{ $book->title }}</p>
@@ -149,7 +149,7 @@
                         <li class="py-4">
                             <div class="flex items-center space-x-4">
                                 <div class="flex-shrink-0">
-                                    <img class="h-8 w-8 rounded-full" src="{{ $author->image ?? 'https://via.placeholder.com/40' }}" alt="{{ $author->name }}">
+                                    <img class="h-8 w-8 rounded-full" src="{{ "/storage/".$author->image_path ?? 'https://via.placeholder.com/40' }}" alt="{{ $author->name }}">
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-sm font-medium text-gray-900 truncate">{{ $author->name }}</p>
