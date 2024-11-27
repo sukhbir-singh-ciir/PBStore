@@ -173,7 +173,7 @@
                         <input type="text" 
                                name="meta_title" 
                                id="meta_title" 
-                               value="{{ old('meta_title', $book->metaData->meta_title) }}"
+                               value="{{ old('meta_title', $book->metaData->meta_title ?? "") }}"
                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('meta_title') border-red-500 @enderror"
                                required>
                         @error('meta_title')
@@ -190,7 +190,7 @@
                                   id="meta_description"
                                   rows="3"
                                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('meta_description') border-red-500 @enderror"
-                                  required>{{ old('meta_description', $book->metaData->meta_description) }}</textarea>
+                                  required>{{ old('meta_description', $book->metaData->meta_description ?? "") }}</textarea>
                         @error('meta_description')
                             <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
                         @enderror
